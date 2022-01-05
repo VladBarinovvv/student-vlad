@@ -26,7 +26,7 @@ showMassage();
 // задание 2
 
 // function greetings(){
-//     const userName = (prompt('Ваше имя'));
+//     const userName = prompt('Ваше имя');
 //     const userAge =  Number(prompt ('Ваш возраст'));
    
 //     if (userAge > 30){
@@ -44,10 +44,10 @@ showMassage();
      console.log('a', a);
      console.log('b', b);
 
-   console.log (Math.pow(a,b));
+   return (Math.pow(a,b));
  }
 
-calculate(2,3);
+ console.log (calculate(2,3));
 
 
 
