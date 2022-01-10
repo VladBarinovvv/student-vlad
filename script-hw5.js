@@ -52,20 +52,26 @@ const drawPyramid = (height) => {
 // drawPyramid(desiredHeight)
     
     
-    firstNumber = Number (prompt('Первое число'));
-    secondNumber = Number (prompt ('Второе число'));
+
+
+
+function getPrimes(num) {
+    const seive = [];
+    const primes = [];
     
-const showSimpleNumbers = (firstNumber,secondNumber) =>{
-    
-    for (let i = firstNumber; i <= secondNumber; i++){
-        if (i % 2 !== 0){
-            console.log (i);
-        }
-       
+    for (let i = 2 ; i <= num; i++) {
+      if (!seive[i]) {
+        primes.push(i);
+        for (let j = i * i; j <= num; j += i) {
+          seive[j] = true;
+        } 
+      }
     }
-
-}
-
-showSimpleNumbers (firstNumber,secondNumber);
+    
+    
+    return primes;
+  }
+  
+  console.log(getPrimes(60));
 
  
