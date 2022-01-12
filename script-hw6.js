@@ -107,4 +107,15 @@ const enter = () => {
    
 }
 
-enter();
+// enter();
+
+//задание 2
+
+
+const getRandomInteger = (min,max) => {
+    return Math.round(Math.random() * (max - min) + min);
+  };
+  
+  const integerRandom = getRandomInteger(500,1000);
+
+  console.log(`integerRandom`, integerRandom);
