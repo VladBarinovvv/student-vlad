@@ -74,7 +74,7 @@ const enter = () => {
 
     userName2 = prompt('Введите имя и фамилию:');
      if (!userName2 || userName2 === falseName ){
-         alert ('Вы не ввели имя и фамилию');
+         alert ('Вы не ввели имя и фамилию!');
          continue;
     
      }
@@ -84,26 +84,28 @@ const enter = () => {
 
     while( !userPassword2 || lengthString < 6 ){
 
-        userPassword2 = prompt('Введите пароль');
+        userPassword2 = prompt('Введите пароль:');
         lengthString = (userPassword2.length);
         if ( !userPassword2 ){
-            alert ('Вы не ввели пароль');
+            alert ('Вы не ввели пароль!');
             continue;
         } if (lengthString < 6){
             alert('Данные не верны!');
             continue
         }  else {
-        console.log('wrong');
+        alert('Добро пожаловать!');
     }
         
-       }   
+       }  
+       
+       alert( userName2.split(/\s+/).map(word => word[0].toUpperCase() + word.substring(1)).join(' '));
 
   
 
    
 }
 
-// enter();
+enter();
 
 //задание 2
  
