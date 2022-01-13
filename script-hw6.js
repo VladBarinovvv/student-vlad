@@ -64,12 +64,11 @@ const maskCreditCard = (cardNumber) => {
 
 
 const enter = () => {
-
+    let lengthString;
     let userName2;
     let userPassword2;
     const falseName = ' ';
-    const falsePassword = ' ';
-    const sixSymbol = 'qwerty';
+    
 
     while(!userName2 || userName2 === falseName ){
 
@@ -81,26 +80,23 @@ const enter = () => {
      }
 
     }
-    while(!userPassword2 || userPassword2 === falsePassword){
-     userPassword2 = prompt('Введите пароль');
-     if (!userPassword2 || userPassword2 === falsePassword){
-         alert ('Вы не ввели пароль');
-         continue;
-     }
-    }
-    const str = ( sixSymbol.localeCompare( userPassword2));
-    while( str > 0 ){ 
-        const str = ( sixSymbol.localeCompare( userPassword2));
-        console.log (str);
-        userPassword2 = prompt('Введите пароль');
-     if (str > 0){
-         alert ('Вы ввели не корректный  пароль');
-         continue;
-     }
-    }
+    
 
-     
-   
+    while( !userPassword2 || lengthString < 6 ){
+
+        userPassword2 = prompt('Введите пароль');
+        lengthString = (userPassword2.length);
+        if ( !userPassword2 ){
+            alert ('Вы не ввели пароль');
+            continue;
+        } if (lengthString < 6){
+            alert('Данные не верны!');
+            continue
+        }  else {
+        console.log('wrong');
+    }
+        
+       }   
 
   
 
@@ -110,12 +106,6 @@ const enter = () => {
 // enter();
 
 //задание 2
+ 
 
-
-const getRandomInteger = (min,max) => {
-    return Math.round(Math.random() * (max - min) + min);
-  };
-  
-  const integerRandom = getRandomInteger(500,1000);
-
-  console.log(`integerRandom`, integerRandom);
+ 
