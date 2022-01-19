@@ -59,15 +59,12 @@ const maskCreditCard = (cardNumber) => {
 // задание 1 
 
 
- 
-
-
-
 const enter = () => {
-    let lengthString;
+    
     let userName2;
     let userPassword2;
     const falseName = ' ';
+    let check = false;
     
 
     while(!userName2 || userName2 === falseName ){
@@ -81,19 +78,25 @@ const enter = () => {
 
     }
     
+     
 
-    while( !userPassword2 || lengthString < 6 ){
-
+    while (check = true){
+         
         userPassword2 = prompt('Введите пароль:');
-        lengthString = (userPassword2.length);
+        
         if ( !userPassword2 ){
             alert ('Вы не ввели пароль!');
             continue;
-        } if (lengthString < 6){
+            
+        } if (userPassword2.length < 6){
             alert('Данные не верны!');
-            continue
-        }  else {
-        alert('Добро пожаловать!');
+          
+        }  else if (userPassword2.toLowerCase() === userPassword2)  {
+        alert('Данные не верны!');
+    } else{
+        alert('Добро пожаловать!')
+        check = true;
+        break;
     }
         
        }  
@@ -105,9 +108,17 @@ const enter = () => {
    
 }
 
-enter();
+// enter();
 
 //задание 2
- 
+
+function letRandom(min, max) {
+    
+    let rand = min - 0.5 + Math.random() * (max - min + 1);
+    return Math.round(rand);
+  }
+  
+  console.log( letRandom(300,1000) );
 
  
+
