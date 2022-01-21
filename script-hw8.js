@@ -35,18 +35,17 @@
 
   
   const getMean = (arr) =>{
+
     let meanTrue = 0;
 
     for (let item of arr){
-        console.log(item);
+        // console.log(item);
       if (item === true){
           meanTrue += 1;
-      }
-      return meanTrue;
-      
+      }    
    }
-
+   return meanTrue;
 };
 
-const number = getMean([ false, false, true]);
+const number = getMean([true, false, false, true, true]);
 console.log(number);
