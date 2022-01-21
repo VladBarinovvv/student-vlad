@@ -56,31 +56,21 @@ const timetable = {
 
 // задание 2
 
-const salaries = () => {
-
-do {
 const salaries = {
-  [prompt ('Имя:')]: prompt('Зарплата:')
+  John: "4300.00",
+  Ann: "5700.40",
+  Pete: "4900.95",
 };
-console.log(`salaries`, salaries);
-question = confirm('Еще одно имя?');
-continue
-} while (question === true)
 
-const getSalariesTotal = (salaries) => {
-  let total = 0;
-  for (let key in salaries) {
-      console.log(`employee`, key);
-    console.log(`salaries[empleyee]`, salaries[key])
-    total += salaries[key];
+function getSalariesSum(salaries) {
+  let result = 0;
+  for (let name in salaries) {
+    result += Number(salaries[name]) * 100;
   }
+   
+    return result / 100;
 
-  return total;
-};
+} 
 
-const totalResult = getSalariesTotal(salaries);
-console.log(`totalResult`, totalResult);
-
-}
-
-salaries();
+const totalResult = getSalariesSum(salaries);
+console.log(totalResult);
