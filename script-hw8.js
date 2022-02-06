@@ -53,35 +53,33 @@ const getOccurrencesCount = (arr) => {
   return res;
 };
 
-let result = getOccurrencesCount(["a","f","f","s","f","a"])
-console.log (result);
+// let result = getOccurrencesCount(["a","f","f","s","f","a"])
+// console.log (result);
   
 // задание 3
 
-// function numbers(arr) {
-//   let j = false;
-//   let d = false;
-//   if (((arr[0] % 2 === 0) && (arr[1] % 2 === 0)) || ((arr[1] % 2 === 0) && (arr[2] % 2 === 0))) {
-//     d = true;
-//   } else {
-//     j = true;
-//   }
+function findExcess(integers) {
+  
+  let evenArr = [];
+  let oddArr = [];
 
-//   if (j) {
-//     for (let i = 0; i < arr.length; i++) {
-//       if (arr[i] % 2 === 0) {
-//         return arr[i];
-//       }
-//     }
-//   } else if (d) {
-//     for (let i = 0; i < arr.length; i++) {
-//       if (arr[i] % 2 !== 0) {
-//         return arr[i];
-//       }
-//     }
-//   }
-// }
+  
+  for (let i = 0; i < integers.length; i++) {
+    if (integers[i] % 2 === 0) {
+      evenArr.push(integers[i]);
+    } else {
+      oddArr.push(integers[i]);
+    }
+  }
 
-// let result = numbers([5,7,9,2,3,13] );
-// console.log(result);
+  if (evenArr.length > oddArr.length) {
+    return oddArr[0];
+  } else {
+    return evenArr[0];
+  }
+}
+
+
+let result = findExcess([5, 4, 6, 8, 2]);
+console.log(result);
 
