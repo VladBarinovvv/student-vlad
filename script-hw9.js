@@ -50,65 +50,62 @@ const data = [
     },
   ];
 
-const similarObject = []
-const peopleData = data
-for (let i = 0 ; i < peopleData.length; i++){
-    for (let item of peopleData){
-        if (!similarObject[item]) {
-            similarObject[item] = 1;
-          } 
+  const filterData = (data, filterBy) => {
+    const filtered = [];
+  
+    for (let i = 0; i < data.length; i++) {
+      let isMatch = true;
+      for (let key in filterBy) {
+        if (data[i][key] !== filterBy[key]) {
+          isMatch = false;
+        }
+      }
+      if (isMatch) {
+        filtered.push(data[i]);
+      }
     }
-}
+  
+    return filtered;
+  
+  
+  };
 
-// console.log(peopleData);
-
-// console.log('similarObject', similarObject);
+  // const result = filterData(data, {age: 19, position: "junior"});
+  // console.log(result);
+    
 
 // задание 2
 
-  function ownFilter (arr) {
+  const ownFilter = (arr, callback) =>{
+    let resultArr = [];
 
-    let allNegative = [];
+    for(let i=0; i<arr.length; i++ ){
+      const operatioResault = callback(arr[i], i, arr);
 
-    for (let item of arr){
-      if (item < 0){
-          allNegative.push(item);
-      }    
-   }
-   console.log(allNegative);
-};
-// ownFilter([10, 20, -5, 3, -5]);
-
-
-function ownMap (arr) {
-
-    let incrementPush = [];
-
-    for (let item of arr){
-      item += 1; 
-      incrementPush.push(item);
-   }
-   console.log(incrementPush);
-};
-
-// ownMap([10, 20, -5, 3, -5]);
-
-function ownForEach (array) {
-   let ownForEachDid = [];
-  for(let index in array){
-      ownForEachDid.push(`In array [${array}] on position ${index}: ${array[index]}`);
+      if(operatioResault){
+        resultArr.push(arr[i]);
+      }
+    }
+    return resultArr;
   }
-  console.log(ownForEachDid);
-}
-    
-
-
-ownForEach([5, 6, 8]);
  
 
+  const ownMap = (arr, callback) =>{
+    let resultArr = [];
 
+    for(let i=0; i<arr.length; i++ ){
+      const operatioResault = callback(arr[i], i, arr);
 
-  
+      if(operatioResault){
+        resultArr.push(arr[i]);
+      }
+    }
+    return resultArr;
+  }
 
-
+  const ownForEach = (arr, callback) => {
+    for(let i=0; i<arr.length; i++ ){
+       callback(arr[i], i, arr);
+  }
+  };
 
