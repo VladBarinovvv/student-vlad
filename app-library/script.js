@@ -2,10 +2,10 @@ const actionButton = document.querySelector("button");
 actionButton.addEventListener("click", library);
 
 const books = [
-  { id: 1, author: "Фицджеральд", name: "Великий Гетсби", isReading: false },
-  { id: 2, author: "Толстой", name: "Анна Каренина", isReading: false },
-  { id: 3, author: "Оруел", name: "1984", isReading: false },
-  { id: 4, author: "Сервантес", name: "Дон Кихот", isReading: false },
+  { id: 1, author: "Фицджеральд", name: "Великий Гетсби", isReading: false, amount: 2 },
+  { id: 2, author: "Толстой", name: "Анна Каренина", isReading: false, amount: 2 },
+  { id: 3, author: "Оруел", name: "1984", isReading: false, amount: 2 },
+  { id: 4, author: "Сервантес", name: "Дон Кихот", isReading: false, amount: 2 },
 ];
 
 function library() {
@@ -52,8 +52,10 @@ function choiceBook  () {
  switch(choiceSearch){
    case "author":
    takeBookAuthor();
+   break;
    case "name":
    takeBookName();
+   break;
  }
 
 }
@@ -89,8 +91,8 @@ const takeBookName = () =>{
 
     return;
   }
-
-  userBook.isReading = true;
+   
+   userBook.isReading = true;
 
   alert(`Thank you! Your book id - ${userBook.id}`);
 
@@ -141,9 +143,62 @@ const takeBookAuthor = () =>{
 
 
 const returnBook = () =>{
+  const returningBookId = Number(prompt("Enter book id:"));
 
+  if (!returningBookId) {
+    alert("No book id");
+
+    return;
+  }
+
+  const currentBook = books.find((book) => book.id === returningBookId);
+
+  if (!currentBook) {
+    alert("Invalid book id");
+
+    return;
+  }
+
+  if (!currentBook.isReading) {
+    alert("This book is not reading now");
+
+    return;
+  }
+
+  currentBook.isReading = false;
+  alert(`Thanks, come again! Do you like "${currentBook.name}"? `);
+   
+  console.log(books);
 }
 
 const addBook = () =>{
+  const name = prompt("Book name");
+  const author = prompt("Book Author");
+
+  const newBook = {
+    name,
+    author,
+    isReaading: false,
+    id: generateBookId(),
+  };
+
+  console.log(`newBook`, newBook);
+  books.push(newBook);
+
+  alert(`Book was added! Book's id: ${newBook.id}`);
+  console.log(books);
+};
+
+function generateBookId () {
+  let isBookWithIdExists = true;
+  let generatedId;
+
+  do {
+    generatedId = Math.ceil(Math.random() * 100);
+    isBookWithIdExists = Boolean(books.find((book) => book.id === generatedId));
+  } while (isBookWithIdExists);
+
+  return generatedId;
+  
 
 }
