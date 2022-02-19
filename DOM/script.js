@@ -20,111 +20,146 @@ const products = [
   },
 ];
 
-const takeProductsNames = () =>{
-  productsNames = products
-  .map ((phone) =>phone.name)
+// const takeProductsNames = () =>{
+//   productsNames = products
+//   .map ((phone) =>phone.name)
 
-}
+// }
 
-takeProductsNames();
-console.log(productsNames);
+// takeProductsNames();
+// console.log(productsNames);
 
-const firstProductName = productsNames[0];
-const secondProductName = productsNames[1];
-const thirdProductName = productsNames[2];
+// const firstProductName = productsNames[0];
+// const secondProductName = productsNames[1];
+// const thirdProductName = productsNames[2];
 
-const takeProductsBrands = () =>{
-  productsBrands = products
-  .map ((phone) =>phone.brand)
+// const takeProductsBrands = () =>{
+//   productsBrands = products
+//   .map ((phone) =>phone.brand)
 
-}
+// }
 
-takeProductsBrands();
-console.log(productsBrands);
+// takeProductsBrands();
+// console.log(productsBrands);
 
-const firstProductBrand = productsBrands[0];
-const secondProductBrand = productsBrands[1];
-const thirdProductBrand = productsBrands[2];
+// const firstProductBrand = productsBrands[0];
+// const secondProductBrand = productsBrands[1];
+// const thirdProductBrand = productsBrands[2];
 
-const takeProductsProperties = () =>{
-  productsProperties = products
-  .map ((phone) =>phone.properties)
+// const takeProductsProperties = () =>{
+//   productsProperties = products
+//   .map ((phone) =>phone.properties)
 
-}
+// }
 
-takeProductsProperties();
-console.log(productsProperties);
+// takeProductsProperties();
+// console.log(productsProperties);
 
-const firstProductProperties = productsProperties[0];
-const secondProductProperties = productsProperties[1];
-const thirdProductProperties = productsProperties[2];
+// const firstProductProperties = productsProperties[0];
+// const secondProductProperties = productsProperties[1];
+// const thirdProductProperties = productsProperties[2];
 
 
-const firstPhone = (model, brand, properties) => {
-  const shopContainer = document.createElement("div");
+// const firstPhone = (model, brand, properties) => {
+//   const shopContainer = document.createElement("div");
 
-  shopContainer.innerHTML = `
-    <h1>${model}</h1>
-    <h2>${brand}</h2>
+//   shopContainer.innerHTML = `
+//     <h1>${model}</h1>
+//     <h2>${brand}</h2>
+// `;
+// const list = document.createElement('ul');
+
+//  properties.forEach((item) =>{
+//    const listItem = document.createElement('li');
+//    listItem.innerText = item;
+
+//    list.append(listItem);
+//  })
+//   shopContainer.append(list);
+
+//   return shopContainer;
+// };
+
+// const shopItemElement = firstPhone(firstProductName, firstProductBrand, firstProductProperties);
+// document.body.append(shopItemElement);
+
+// const secondPhone = (model, brand, properties) => {
+//   const shopContainer = document.createElement("div");
+
+//   shopContainer.innerHTML = `
+//     <h1>${model}</h1>
+//     <h2>${brand}</h2>
+// `;
+// const list = document.createElement('ul');
+
+//  properties.forEach((item) =>{
+//    const listItem = document.createElement('li');
+//    listItem.innerText = item;
+
+//    list.append(listItem);
+//  })
+//   shopContainer.append(list);
+
+//   return shopContainer;
+// };
+
+// const shopItemElement2 = secondPhone(secondProductName, secondProductBrand, secondProductProperties);
+// document.body.append(shopItemElement2);
+
+// const thirdPhone = (model, brand, properties) => {
+//   const shopContainer = document.createElement("div");
+
+//   shopContainer.innerHTML = `
+//     <h1>${model}</h1>
+//     <h2>${brand}</h2>
+// `;
+// const list = document.createElement('ul');
+
+//  properties.forEach((item) =>{
+//    const listItem = document.createElement('li');
+//    listItem.innerText = item;
+
+//    list.append(listItem);
+//  })
+//   shopContainer.append(list);
+
+//   return shopContainer;
+// };
+
+// const shopItemElement3 = secondPhone(thirdProductName, thirdProductBrand, thirdProductProperties);
+// document.body.append(shopItemElement3);
+
+
+// 
+const renderProducts = (arr) =>{
+
+  const container = document.createElement('div');
+
+  container.innerHTML = `
+  ${arr
+    .map((prod) => {
+      return `
+      <h3>${prod.name}</h3>
+      <h4>${prod.brand}</h4>
+      <ul>
+      ${prod.properties
+        .map((prop) => {
+          return `
+          <li>
+            ${prop}
+          </li>
+        `;
+        })
+        .join("")}
+      </ul>
+    `;
+    })
+    .join("")}
 `;
-const list = document.createElement('ul');
 
- properties.forEach((item) =>{
-   const listItem = document.createElement('li');
-   listItem.innerText = item;
-
-   list.append(listItem);
- })
-  shopContainer.append(list);
-
-  return shopContainer;
+document.body.append(container);
 };
 
-const shopItemElement = firstPhone(firstProductName, firstProductBrand, firstProductProperties);
-document.body.append(shopItemElement);
+renderProducts(products);
 
-const secondPhone = (model, brand, properties) => {
-  const shopContainer = document.createElement("div");
-
-  shopContainer.innerHTML = `
-    <h1>${model}</h1>
-    <h2>${brand}</h2>
-`;
-const list = document.createElement('ul');
-
- properties.forEach((item) =>{
-   const listItem = document.createElement('li');
-   listItem.innerText = item;
-
-   list.append(listItem);
- })
-  shopContainer.append(list);
-
-  return shopContainer;
-};
-
-const shopItemElement2 = secondPhone(secondProductName, secondProductBrand, secondProductProperties);
-document.body.append(shopItemElement2);
-
-const thirdPhone = (model, brand, properties) => {
-  const shopContainer = document.createElement("div");
-
-  shopContainer.innerHTML = `
-    <h1>${model}</h1>
-    <h2>${brand}</h2>
-`;
-const list = document.createElement('ul');
-
- properties.forEach((item) =>{
-   const listItem = document.createElement('li');
-   listItem.innerText = item;
-
-   list.append(listItem);
- })
-  shopContainer.append(list);
-
-  return shopContainer;
-};
-
-const shopItemElement3 = secondPhone(thirdProductName, thirdProductBrand, thirdProductProperties);
-document.body.append(shopItemElement3);
+  
