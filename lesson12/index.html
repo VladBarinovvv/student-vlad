@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Styles in JS</title>
+
+    <style>
+    .tooltip{
+        position: fixed;
+      padding: 10px 20px;
+      border: 1px solid #b3c9ce;
+      border-radius: 4px;
+      text-align: center;
+      font: italic 14px/1.3 sans-serif;
+      color: #333;
+      background: #fff;
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+    }
+    body{
+        padding-top: 50px;
+        padding-left: 30px;
+    }
+    .textPlace{
+        color: #333;
+      background: #fff;
+    }
+    </style>
+  <button id="myButton"  class = "button" data-tooltip="Some words for tooltip example">My Button</button>
+    <script src="./script.js"></script>
+  </body>
+</html>
