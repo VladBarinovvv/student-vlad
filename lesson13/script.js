@@ -19,10 +19,11 @@ function goToSlide(e){
 let next = document.getElementById('next');
 let previous = document.getElementById('previous');
 
-next.onclick = function(){
-		nextSlide();
-};
-previous.onclick = function(){
-	previousSlide();
-};
+next.addEventListener('click' , () => {
+  nextSlide();
+})
+previous.addEventListener('click' , () => {
+  nextSlide();
+})
+
 
