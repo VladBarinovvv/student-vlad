@@ -72,6 +72,6 @@ function getPrimes(num) {
     return primes;
   }
   
-  console.log(getPrimes(60));
+//   console.log(getPrimes(60));
 
  

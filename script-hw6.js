@@ -118,7 +118,6 @@ function letRandom(min, max) {
     return Math.round(rand);
   }
   
-  console.log( letRandom(300,1000) );
+//   console.log( letRandom(300,1000) );
 
  
-

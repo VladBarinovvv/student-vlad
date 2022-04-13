@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        body {
+           max-width: 1100px;
+           padding-top: 20px;
+           margin: 0 auto; 
+        }
+         .keyboard {
+        padding-top: 40px;
+        display: grid;
+        /* width: 60px; */
+        justify-content: start;
+        align-content: start;
+        justify-items: start;
+        justify-self: start;
+
+        grid-template-columns: repeat(3, 60px);
+        grid-gap: 16px;
+      }
+
+      .keyboard-item {
+        text-transform: uppercase;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 24px;
+        text-align: center;
+        background: #fff;
+        border: 1px solid #000;
+        border-radius: 5px;
+      }
+
+      .keyboard-item--pressed {
+        background-color: antiquewhite;
+      }
+      .titles {
+        list-style: none;
+        padding: 0;
+        margin: 20 0;
+      }
+
+      .title {
+        font-size: 32px;
+        margin-bottom: 16px;
+        cursor: pointer;
+      }
+
+      .title[data-selected] {
+        font-weight: 700;
+      }
+
+      .language-logo {
+        width: 400px;
+        height: auto;
+      }
+    </style>
+   
+    <!-- функция кликер (считает нажатия на кнопку) -->
+    <button id="btn">tap</button>
+    <p>Clicks: <span id="clicksCounter">0</span></p>
+
+    <!-- Подсвечивать текущую нажатую клавишу -->
+    <div class="keyboard" id="keyboard">
+        <div class="keyboard-item">q</div>
+        <div class="keyboard-item">w</div>
+        <div class="keyboard-item">e</div>
+        <div class="keyboard-item">a</div>
+        <div class="keyboard-item">s</div>
+        <div class="keyboard-item">d</div>
+        <div class="keyboard-item">z</div>
+        <div class="keyboard-item">x</div>
+        <div class="keyboard-item">c</div>
+      </div>
+
+       <!-- При нажатии на кнопку - появление картинки -->
+      <div>
+        <ul class="titles" id="titles">
+          <li class="title" data-content="js" >JS</li>
+          <li class="title" data-content="c#" data-selected>C#</li>
+          <li class="title" data-content="java">JAVA</li>
+        </ul>
+        <div class="images">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png"
+            alt="js logo"
+            data-title="js"
+            class="language-logo"
+          />
+          <img
+            src="https://miro.medium.com/max/1200/1*w0u2TZpEp3WfKMrlL5jTSw.png"
+            alt="c# logo"
+            data-title="c#"
+            class="language-logo"
+          />
+          <img
+            src="https://independentview.net/wp-content/uploads/2016/03/javalogo.png"
+            alt="java logo"
+            data-title="java"
+            class="language-logo"
+          />
+        </div>
+      </div>
+   
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -34,34 +34,34 @@
 
 // alert('Now in your wallet: ' + userMoneyAmount);
 
-const num1 = 13;
-const num2 = 21;
-let operationResult;
+// const num1 = 13;
+// const num2 = 21;
+// let operationResult;
 
-operationResult = num1 + num2;
-console.log('13+21=', operationResult);
+// operationResult = num1 + num2;
+// console.log('13+21=', operationResult);
 
-let x=3;
+// let x=3;
 
-console.log('x++', x++);
-console.log('main x', x);
+// console.log('x++', x++);
+// console.log('main x', x);
 
-let resultNumber;
+// let resultNumber;
 
-resultNumber = 5-10*3;
-console.log('5-10*3', resultNumber);
+// resultNumber = 5-10*3;
+// console.log('5-10*3', resultNumber);
 
-let a=10;
-let b=12;
+// let a=10;
+// let b=12;
 
-a += b;
-console.log('a', a);
+// a += b;
+// console.log('a', a);
 
-const userNameIf = prompt('Как Вас зовут?');
+// const userNameIf = prompt('Как Вас зовут?');
 
-if(!userNameIf){
-    alert('Вы не ввели имя!');
-}
+// if(!userNameIf){
+//     alert('Вы не ввели имя!');
+// }
 
 // задание 1
  
