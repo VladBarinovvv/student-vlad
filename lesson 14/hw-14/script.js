@@ -97,12 +97,12 @@ document.body.prepend(container);
 allElem.forEach((elem) =>{
   if (elem === 'text'){
       const input = document.createElement('input');
+      input.type = 'text';
       container.append(input);
   } else if (elem === 'select'){
     const select = document.createElement('select');
-
+    select.setAttribute('type', 'select');
     container.append(select);
-    console.log('select');
   }
 })
 
