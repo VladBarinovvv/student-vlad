@@ -1,45 +1,4 @@
-// const text =  {
-//   element: 'text',
-//   name: 'login',
-//   label: 'Логин',
-// }
 
-  
-// let element = text.element;
-// let name = text.name;
-// let label = text.label;
-// console.log(label); 
-
-
-// function createElement (element, name, label){
-//   const container = document.createElement('div');
-//   const input = document.createElement('input');
-//   const labelElem = document.createElement('label');
-
-//   input.name = name;
-//   input.type = element;
-//   labelElem.innerText = label;
-
-//   container.append(labelElem, input);
-//   document.body.prepend(container);
-// }
-
-// createElement(element, name,  label);
-
-
-// let label = document.createElement('label');
-
-// label.innerText = 'логин';
-// label.setAttribute('for', 'login');
-// input.setAttribute('type', 'text');
-// input.setAttribute('name', 'login');
-// input.setAttribute('id', 'login');
-
-
-// div.prepend(label);
-
-
-// document.body.prepend(div);
 
 const formConfig = [
   {
@@ -73,57 +32,93 @@ const formConfig = [
   },
 ];
 
-const allElem = [];
-const allLabel = [];
-const allOpt = [];
 
-console.log(allLabel);
 
-formConfig.forEach((elem) =>{
-  allLabel.push(elem.label)
-})
+let firstConfig = formConfig[0];
+let secondConfig = formConfig[1];
+let thirdConfig = formConfig[2];
 
-formConfig.forEach((elem) =>{
-  allOpt.push(elem.options)
-})
 
-formConfig.forEach((elem) =>{
-  allElem.push(elem.element)
-})
 
-const container = document.createElement('div');
+const container = document.createElement('form');
+container.id = 'form';
 document.body.prepend(container);
 
-allElem.forEach((elem) =>{
-  if (elem === 'text'){
-      const input = document.createElement('input');
-      input.type = 'text';
-      container.append(input);
-  } else if (elem === 'select'){
-    const select = document.createElement('select');
-    select.setAttribute('type', 'select');
-    container.append(select);
-  }
-})
+const createInput = (arr) =>{
+  const elem = arr.element;
+  const name = arr.name;
+  const label = arr.label;
 
+ 
+  const input = document.createElement('input');
+  const labelElem = document.createElement('label');
+  
+    input.name = name;
+    input.type = elem;
+    labelElem.innerText = label;
+    container.append(labelElem, input);
+    
+}
 
+const createSelect = (arr) =>{
+  const elem = arr.element;
+  const name = arr.name;
+  const label = arr.label;
+  const options = arr.options;
+  
+  const select = document.createElement('select');
+  const labelElem = document.createElement('label');
+  const firstOptions = document.createElement('option');
+  const secondOption = document.createElement('option');
+  const thirdOption = document.createElement('option');
 
+  select.name = name;
+  select.type = elem;
+  labelElem.innerText = label;
+  firstOptions.innerText = options[0].text;
+  secondOption.innerText = options[1].text;
+  thirdOption.innerText = options[2].text;
 
+  select.append(firstOptions, secondOption, thirdOption);
+  container.append(labelElem, select);
+}
 
+const createSubmit = () =>{
+   const button = document.createElement('button');
+   
 
-// function createInput (elem) {
-//   if (elem === 'text'){
-//     const container = document.createElement('div');
-//   const input = document.createElement('input');
+   button.name = 'submit';
+   button.innerText = 'submit';
 
-//   container.append(input);
-//     document.body.prepend(container);
-//   }else{
-//     console.log('error');
+   container.append(button);
+}
+
+// const convertFormDataToObject = (formData) =>{
+//   const formValues = {};
+
+//   for (let pair of formData.entries()){
+//     formValues[pair[0]] = pair[1]
 //   }
+
+//   return formValues
 // }
 
-// createInput(firstElem);
-// createInput(secondElem);
-// createInput(thirdElem);
+const getValuesForm = (event) =>{
+  event.preventDefault();
+  
+  const formData = new FormData(container);
+  const formValues  = Object.fromEntries(formData.entries());
+  
+  console.log(formValues);
+} 
+
+createInput(firstConfig);
+createInput(secondConfig);
+createSelect(thirdConfig);
+createSubmit();
+
+container.addEventListener('submit', getValuesForm);
+
+
+
 
