@@ -51,7 +51,24 @@ const createInput = (elem, name, label) =>{
   form.append(labelElem, input);
 }
 
-const createSelect = () =>{
+const createSelect = (elem, name, label, option) =>{
+  const select = document.createElement('select');
+  const labelElem = document.createElement('label');
+
+  select.name = name;
+  select.type = elem;
+  labelElem.innerText = label;
+
+  
+  for (let i=1; i <= option.length; i++){
+    const optionAttr = document.createElement('option');
+
+    optionAttr.innerText = option[key].text;
+
+    select.append(optionAttr);
+  }
+
+  form.append(labelElem, select);
 
 }
 
@@ -65,26 +82,25 @@ const option = formConfig[key].options;
 console.log(option);
 
 
-
-
-
 if (elem === 'text'){
    createInput(elem, name, label);  
 }else if(elem === 'select'){
-   const select = document.createElement('select');
-  for (let i=1; i <= option.length; i++){
-    const optionAttr = document.createElement('option');
-
-    optionAttr.innerText = option[key].text;
-
-    select.append(optionAttr);
-  }
-
-  form.append(select);
-}
+  createSelect(elem, name, label, option);
 }
 
+}
 
+//    const select = document.createElement('select');
+//   for (let i=1; i <= option.length; i++){
+//     const optionAttr = document.createElement('option');
+
+//     optionAttr.innerText = option[key].text;
+
+//     select.append(optionAttr);
+//   }
+
+//   form.append(select);
+// }
 
 
 // let firstConfig = formConfig[0];
