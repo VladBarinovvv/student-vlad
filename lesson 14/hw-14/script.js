@@ -8,6 +8,11 @@ const formConfig = [
   },
   {
     element: "text",
+    name: "name",
+    label: "имя",
+  },
+  {
+    element: "text",
     name: "age",
     label: "Возраст",
   },
@@ -36,17 +41,16 @@ const formConfig = [
   const container = document.createElement('div'); 
   const form = document.createElement('form');
 
-  form.className = 'form';
-  container.className = 'container';
+  form.classList.add('form');
 
 
   formConfig.forEach(field =>{
     const wrapper = document.createElement('div');
     const label = document.createElement('label');
 
-    wrapper.className = 'wrapper';
+    wrapper.classList.add('wrapper');
     label.setAttribute('for', field.name);
-    label.className = 'label';
+    label.classList.add('label');
     label.innerText = field.label;
 
     wrapper.append(label);
@@ -54,18 +58,19 @@ const formConfig = [
 
     if (field.element === 'text'){
     const input = document.createElement('input');
-    input.className = 'input';
-    input.name = field.name;
-    input.id = field.name;
+    input.classList.add('input');
+    input.setAttribute('name', field.name);
+    input.setAttribute('id', field.name);
     input.type = field.element;
     wrapper.append(input);
 
     }else if (field.element === 'select'){
       const optionValue = field.options;
       const select = document.createElement('select');
-      select.className = 'select';
-      select.name = field.name;
-      select.id = field.name;
+      select.classList.add('select');
+      select.setAttribute('name', field.name);
+      select.setAttribute('id', field.name);
+      
       optionValue.forEach(opp =>{
          const options = document.createElement('option');
          options.innerText = opp.text;
@@ -76,6 +81,7 @@ const formConfig = [
       
       wrapper.append(select);
     }
+  
     
     
   })
@@ -101,6 +107,8 @@ const formConfig = [
 }
 
 createFields(formConfig);
+
+
 
 
 
