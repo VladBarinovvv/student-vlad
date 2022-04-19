@@ -32,28 +32,40 @@ const formConfig = [
   },
 ];
 
-
-
- createFields = (formConfig) => {
+  const createFields = (formConfig) => {
   const container = document.createElement('div'); 
   const form = document.createElement('form');
 
+  form.className = 'form';
+  container.className = 'container';
+
+
   formConfig.forEach(field =>{
+    const wrapper = document.createElement('div');
     const label = document.createElement('label');
 
+    wrapper.className = 'wrapper';
     label.setAttribute('for', field.name);
+    label.className = 'label';
     label.innerText = field.label;
 
-    form.append(label);
+    wrapper.append(label);
+    form.append(wrapper);
 
     if (field.element === 'text'){
     const input = document.createElement('input');
+    input.className = 'input';
+    input.name = field.name;
+    input.id = field.name;
     input.type = field.element;
-    form.append(input);
+    wrapper.append(input);
 
     }else if (field.element === 'select'){
       const optionValue = field.options;
       const select = document.createElement('select');
+      select.className = 'select';
+      select.name = field.name;
+      select.id = field.name;
       optionValue.forEach(opp =>{
          const options = document.createElement('option');
          options.innerText = opp.text;
@@ -62,29 +74,34 @@ const formConfig = [
          select.append(options);
       })
       
-      form.append(select);
+      wrapper.append(select);
     }
+    
     
   })
 
   const button = document.createElement('button');
+  button.className = 'button';
   button.innerText = 'submit';
   form.append(button);
- 
-  const getValuesForm = (event) =>{
+  
+  const handleSubmit = (event) =>{
     event.preventDefault();
-    
     const formData = new FormData(form);
     const formValues  = Object.fromEntries(formData.entries());
   
     console.log(formValues);
   } 
+  
+  form.addEventListener('submit', handleSubmit);
 
-  form.addEventListener('submit', getValuesForm);
+  
   container.append(form);
   document.body.append(container);
 }
+
 createFields(formConfig);
+
 
 
 
